@@ -35,10 +35,15 @@ int rangeMonitor_i(double value, double nextValue, double maxDelta) {
 *//*------------------------------------------------------------------------*/
 int validateSensorParmtReadings_i(double* values, int numOfValues) {
   int lastButOneIndex = numOfValues - 1;
-  for(int i = 0; i < lastButOneIndex; i++) {
-    if(!rangeMonitor_i(values[i], values[i + 1], 0.05)) {
+  if (NULL != values)
+  {  
+   for(int i = 0; i < lastButOneIndex; i++) 
+   {
+    if(!rangeMonitor_i(values[i], values[i + 1], 0.05)) 
+    {
       return 0;
     }
+   }
   }
   return 1;
 }
