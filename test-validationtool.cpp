@@ -49,5 +49,5 @@ TEST_CASE("reports no error in case of current maintained as 0 ") {
 TEST_CASE("No process in case on any NULL pointer issue ") {
   double currentReadings[] = {0.0, 0.0, 0.0, 0.0};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
-  REQUIRE(validateSensorParmtReadings_i(NULL, numOfCurReadings) == 1);
+  REQUIRE(validateSensorParmtReadings_i(NULL, numOfCurReadings,maxCurrentDelta) == 1);
 } 
