@@ -17,7 +17,7 @@ TEST_CASE("reports error when current jumps abruptly") {
 }
 
 TEST_CASE("reports no error in case of soc jumps abruptly ") {
-  double socReadings[] = {0.0, 0.01, 0.5, 0.51};
+  double socReadings[] = {0.0, 0.01, 0.02, 0.03};
   int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
   REQUIRE(validateSensorParmtReadings_i(socReadings, numOfSocReadings) == 1);
 }
