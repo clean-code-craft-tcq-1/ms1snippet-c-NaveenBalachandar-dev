@@ -36,13 +36,13 @@ int checkAbnormality_i(double value, double nextValue, double maxDelta) {
  *     \returns     validity status
  *
 *//*------------------------------------------------------------------------*/
-int validateSensorParmtReadings_i(double* values, int numOfValues) {
+int validateSensorParmtReadings_i(double* values, int numOfValues ,double maxThreshold) {
   int lastButOneIndex = numOfValues - 1;
   //if (NULL != values)
   {  
    for(int i = 0; i < lastButOneIndex; i++) 
    {
-    if(!checkAbnormality_i(values[i], values[i + 1], 0.05)) /*sensor readings validation with Max range*/
+    if(!checkAbnormality_i(values[i], values[i + 1], maxThreshold)) /*sensor readings validation with Max range*/
     {
       /*Retruns 0 if there is any abnormalities in sensor readings */
       return 0;
