@@ -17,7 +17,7 @@ TEST_CASE("reports error when current jumps abruptly") {
 }
 
 TEST_CASE("reports error in case of NULL pointer is passed ") {
-  double currentReadings[] = {0.0, 0.8, 0.03, 0.9};
+  double currentReadings[] = {0.0, 0.01, 0.02, 0.03};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(validateSensorParmtReadings_i(currentReadings, numOfCurReadings) == 0);
 }
