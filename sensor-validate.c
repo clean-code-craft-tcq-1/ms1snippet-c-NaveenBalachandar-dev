@@ -5,6 +5,9 @@
 ***     \brief       File to validate the sensors 
 /*****************************************************************************/
 
+/*standard headers*/
+#include <stddef.h>
+
 /*Project headers*/
 #include "sensor-validate.h"
 
