@@ -36,11 +36,34 @@ int checkAbnormality_i(double value, double nextValue, double maxDelta) {
  *     \returns     validity status
  *
 *//*------------------------------------------------------------------------*/
-int validateSensorParmtReadings_i(double* values, int numOfValues ,double maxThreshold) {
-  int lastButOneIndex = numOfValues - 1;
-  //if (NULL != values)
+int validateSensorParmtReadings_i(double* values, int numOfValues ,double maxThreshold) 
+{
+  int lastButOneIndex = numOfValues - 1; 
+  int retType = 1; 
+  
+  if (NULL != values)
   {  
-   for(int i = 0; i < lastButOneIndex; i++) 
+   /*Perform sensor validation individually */ 
+   retType = performIndvSensorvalid_i(values,lastButOneIndex,maxThreshold);
+  }
+  /*Retruns TRUE if there is no abnormalities in sensor readings or NULL pointer is sent*/
+  return retType;
+}
+
+/*---------------------------------------------------------------------------*/
+/*     FUNCTION:    performIndvSensorvalid_i
+ */
+/*!    \brief       validating the sensor parametres like SOC ,current
+ * 
+ *     \param       values ,index and max value
+ *     \returns     validity status
+ *
+*//*------------------------------------------------------------------------*/
+int performIndvSensorvalid_i(double* values, int sensorLastIndex ,double maxThreshold) 
+{
+  int retType = 1;
+  
+  for(int i = 0; i < sensorLastIndex; i++) 
    {
     if(!checkAbnormality_i(values[i], values[i + 1], maxThreshold)) /*sensor readings validation with Max range*/
     {
@@ -48,9 +71,10 @@ int validateSensorParmtReadings_i(double* values, int numOfValues ,double maxThr
       return 0;
     }
    }
-  }
-  /*Retruns TRUE if there is no abnormalities in sensor readings */
-  return 1;
+ 
+  /*Retruns TRUE if there is no abnormalities in sensor readings or NULL pointer is sent*/
+  return retType;
 }
+
 
 
