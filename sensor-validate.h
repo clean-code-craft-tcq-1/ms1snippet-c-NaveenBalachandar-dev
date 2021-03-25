@@ -7,7 +7,7 @@
 
 /*Common Functions */
 /*Func to monitor sensor values range */
-int rangeMonitor_i(double value, double nextValue, double maxDelta);
+int checkAbnormality_i(double value, double nextValue, double maxDelta);
 /*Func to read the sensor parametres like SOC ,current*/
 int validateSensorParmtReadings_i(double* values, int numOfValues);
 
