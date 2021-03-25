@@ -15,7 +15,7 @@ int rangeMonitor_i(double value, double nextValue, double maxDelta) {
   return 1;
 }
 
-int validateSOCreadings(double* values, int numOfValues) {
+int validateSensorParmtReadings_i(double* values, int numOfValues) {
   int lastButOneIndex = numOfValues - 1;
   for(int i = 0; i < lastButOneIndex; i++) {
     if(!rangeMonitor_i(values[i], values[i + 1], 0.05)) {
@@ -25,12 +25,4 @@ int validateSOCreadings(double* values, int numOfValues) {
   return 1;
 }
 
-int validateCurrentreadings(double* values, int numOfValues) {
-  int lastButOneIndex = numOfValues - 1;
-  for(int i = 0; i < lastButOneIndex; i++) {
-    if(!rangeMonitor_i(values[i], values[i + 1], 0.1)) {
-      return 0;
-    }
-  }
-  return 1;
-}
+
