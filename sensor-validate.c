@@ -46,7 +46,7 @@ int validateSensorParmtReadings_i(double* values, int numOfValues ,double maxThr
    /*Perform sensor validation individually */ 
    retType = performIndvSensorvalid_i(values,lastButOneIndex,maxThreshold);
   }
-  /*Retruns TRUE if there is no abnormalities in sensor readings or NULL pointer is sent*/
+  /*Retruns TRUE if there is NULL pointer is sent*/
   return retType;
 }
 
@@ -72,7 +72,7 @@ int performIndvSensorvalid_i(double* values, int sensorLastIndex ,double maxThre
     }
    }
  
-  /*Retruns TRUE if there is no abnormalities in sensor readings or NULL pointer is sent*/
+  /*Retruns TRUE if there is no abnormalities in sensor readings*/
   return retType;
 }
 
