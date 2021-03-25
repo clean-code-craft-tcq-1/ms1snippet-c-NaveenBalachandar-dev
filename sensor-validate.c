@@ -38,7 +38,7 @@ int rangeMonitor_i(double value, double nextValue, double maxDelta) {
 *//*------------------------------------------------------------------------*/
 int validateSensorParmtReadings_i(double* values, int numOfValues) {
   int lastButOneIndex = numOfValues - 1;
-  if (NULL != values)
+  //if (NULL != values)
   {  
    for(int i = 0; i < lastButOneIndex; i++) 
    {
