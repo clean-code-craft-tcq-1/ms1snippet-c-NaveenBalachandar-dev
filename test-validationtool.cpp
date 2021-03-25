@@ -16,14 +16,26 @@ TEST_CASE("reports error when current jumps abruptly") {
   REQUIRE(validateSensorParmtReadings_i(currentReadings, numOfCurReadings) == 0);
 }
 
-TEST_CASE("reports no error in case of soc jumps abruptly ") {
+TEST_CASE("reports no error in case of soc not jumps abruptly ") {
   double socReadings[] = {0.0, 0.01, 0.02, 0.03};
   int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
   REQUIRE(validateSensorParmtReadings_i(socReadings, numOfSocReadings) == 1);
 }
 
-TEST_CASE("reports no error in case of current jumps abruptly ") {
+TEST_CASE("reports no error in case of current not jumps abruptly ") {
   double currentReadings[] = {0.0, 0.01, 0.03, 0.04};
+  int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
+  REQUIRE(validateSensorParmtReadings_i(currentReadings, numOfCurReadings) == 1);
+}
+
+TEST_CASE("reports no error in case of soc maintained as 0") {
+  double socReadings[] = {0.0, 0.0, 0.0, 0.0};
+  int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
+  REQUIRE(validateSensorParmtReadings_i(socReadings, numOfSocReadings) == 1);
+}
+
+TEST_CASE("reports no error in case of current maintained as 0 ") {
+  double currentReadings[] = {0.0, 0.0, 0.0, 0.0};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(validateSensorParmtReadings_i(currentReadings, numOfCurReadings) == 1);
 }
