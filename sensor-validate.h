@@ -1,5 +1,12 @@
+/*****************************************************************************/
+/***    \file        sensor-validate.h
+***     \author      Naveen Balachandar (RBEI/ECK3) 
+***
+***     \brief       header file for sensor validation project file  
+/*****************************************************************************/
 
-int _give_me_a_good_name(double value, double nextValue, double maxDelta);
+/*Common Functions */
+int rangeMonitor_i(double value, double nextValue, double maxDelta);
 
 int validateSOCreadings(double* values, int numOfValues);
 
